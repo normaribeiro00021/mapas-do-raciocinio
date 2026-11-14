@@ -159,7 +159,7 @@ export function Testimonials() {
   );
 }
 
-const PURCHASES = [
+const PURCHASES: [string, string][] = [
   ["Nome", "Cidade"],
   ["Nome", "Cidade"],
 ];
