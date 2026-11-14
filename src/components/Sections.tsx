@@ -256,6 +256,7 @@ export function BonusSection() {
             4 bônus para <span className="text-gradient">aprofundar seu estudo</span>
           </h2>
           <p className="mt-2 text-sm text-primary-foreground/70">Além dos 60 mapas, receba estes quatro materiais no Plano Pro.</p>
+          <p className="mt-4 font-display text-lg font-extrabold text-glow-teal">Só R$ 10 a mais para levar os 4 bônus + futuras atualizações.</p>
         </div>
         <div className="mt-7 grid gap-5 sm:grid-cols-2">
           {BONUSES.map((b) => (
@@ -270,7 +271,7 @@ export function BonusSection() {
                 <h3 className="mt-3 font-display text-lg font-extrabold leading-snug">{b.title}</h3>
                 <p className="mt-2 text-sm font-semibold text-highlight">{b.need}</p>
                 <p className="mb-4 mt-2 text-sm text-primary-foreground/70">{b.desc}</p>
-                <p className="mt-auto text-base font-extrabold text-glow-teal">GRÁTIS NO PLANO PRO</p>
+                <p className="mt-auto text-base font-extrabold text-glow-teal">INCLUÍDO NO PLANO PRO</p>
                 <p className="mt-1 text-xs text-primary-foreground/55">Sem custo adicional no pacote</p>
               </div>
             </article>
