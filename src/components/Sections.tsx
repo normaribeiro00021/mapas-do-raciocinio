@@ -4,6 +4,11 @@ import m23 from "@/assets/mapa-23.webp";
 import m07 from "@/assets/mapa-07.webp";
 import m31 from "@/assets/mapa-31.webp";
 import estudo from "@/assets/estudo-1.webp";
+import bonusPrincipal from "@/assets/bonus-produto-principal.webp";
+import bonusCasos from "@/assets/bonus-casos-clinicos.webp";
+import bonusPerguntas from "@/assets/bonus-banco-perguntas.webp";
+import bonusRecursos from "@/assets/bonus-recursos-visuais.webp";
+import bonusAtlas from "@/assets/bonus-atlas-estrategias.webp";
 
 export const MAP_IMAGES = { m19, m23, m07, m31 };
 
