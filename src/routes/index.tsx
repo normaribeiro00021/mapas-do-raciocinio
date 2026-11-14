@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MODULES, FAQ } from "@/lib/offer";
-import heroImg from "@/assets/hero-mockup.webp";
+import heroImg from "@/assets/luto-combo-completo.webp";
 import { MapsMarquee, BeforeAfter, Testimonials, PurchaseToast, ReferencesCard, BonusSection } from "@/components/Sections";
 
 export const Route = createFileRoute("/")({
@@ -114,10 +114,9 @@ function Index() {
             Fundamentos, manifestações, diferenças clínicas, vínculos, contextos e processos de adaptação — em mapas que conectam teoria, situações e hipóteses de compreensão.
           </p>
           <div className="relative mx-auto mt-8 max-w-[280px] sm:max-w-[380px]">
-            <div className="absolute -inset-6 rounded-full bg-brand-gradient opacity-25 blur-3xl" aria-hidden />
-            <img src={heroImg} alt="Luto em Mapas: tablet, celular e páginas impressas com os mapas visuais" width={720} height={720} fetchPriority="high" className="relative w-full rounded-2xl glow" />
-            <span className="badge-shine absolute -top-3 right-3 rounded-full bg-brand-gradient px-3 py-1 font-display text-xs font-extrabold text-night">60 MAPAS</span>
+            <img src={heroImg} alt="Combo ilustrativo do Plano Pro Luto em Mapas: livro principal, celular, quatro bônus e duas folhas de mapas" width={800} height={800} fetchPriority="high" decoding="async" className="relative w-full rounded-lg" />
           </div>
+          <p className="mt-2 text-center text-[11px] text-primary-foreground/60">Combo do Plano Pro · Mockup ilustrativo · Material digital em PDF</p>
           <ul className="mt-8 grid grid-cols-2 gap-2 text-sm">
             {["60 mapas visuais", "6 módulos educacionais", "Fundamentação científica", "Digital e imprimível (A4)"].map((t) => (
               <li key={t} className="badge-shine rounded-lg bg-primary-foreground/5 px-3 py-2.5 text-center font-semibold ring-1 ring-glow-teal/40">
