@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Keep the product overview and module accordions in one section, and format comparison and learning outcomes in `BeforeAfter`, to avoid duplicate sales-page sections.

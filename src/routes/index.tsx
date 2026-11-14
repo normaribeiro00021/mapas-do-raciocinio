@@ -89,8 +89,6 @@ const MECHANISM = [
 ];
 
 const INCLUDES = [
-  "60 mapas visuais de conteúdo",
-  "6 módulos de Psicologia do Luto",
   "Mapas conceituais e painéis de contraste clínico",
   "Redes de processos psicológicos",
   "Matrizes contextuais e trajetórias",
@@ -99,9 +97,6 @@ const INCLUDES = [
   "Referências por tema + bibliografia consolidada",
   "Mapa final de integração do conhecimento",
 ];
-
-const BEFORE = ["Conhecimentos fragmentados", "Conceitos estudados isoladamente", "Explicações simplificadas demais", "Conteúdo espalhado em livros, artigos e aulas", "Busca de uma única explicação para situações complexas"];
-const AFTER = ["Conhecimentos visualmente organizados", "Relações claras entre conceitos", "Diferenças e sobreposições entre manifestações", "Familiaridade com vários referenciais teóricos", "Uma referência integrada de estudo e consulta"];
 
 function Index() {
   return (
@@ -118,7 +113,7 @@ function Index() {
           <p className="mt-4 text-center text-base text-primary-foreground/80">
             Fundamentos, manifestações, diferenças clínicas, vínculos, contextos e processos de adaptação — em mapas que conectam teoria, situações e hipóteses de compreensão.
           </p>
-          <div className="relative mt-8">
+          <div className="relative mx-auto mt-8 max-w-[280px] sm:max-w-[380px]">
             <div className="absolute -inset-6 rounded-full bg-brand-gradient opacity-25 blur-3xl" aria-hidden />
             <img src={heroImg} alt="Luto em Mapas: tablet, celular e páginas impressas com os mapas visuais" width={720} height={720} fetchPriority="high" className="relative w-full rounded-2xl glow" />
             <span className="badge-shine absolute -top-3 right-3 rounded-full bg-brand-gradient px-3 py-1 font-display text-xs font-extrabold text-night">60 MAPAS</span>
@@ -169,7 +164,7 @@ function Index() {
 
       {/* DOBRA 03 — BIG IDEA */}
       <Section className="bg-card">
-        <Eyebrow>A Big Idea</Eyebrow>
+        <Eyebrow>Além da primeira impressão</Eyebrow>
         <h2 className="text-3xl font-extrabold leading-tight text-primary">
           A mesma manifestação. <span className="text-accent">Diferentes histórias.</span>
         </h2>
@@ -213,7 +208,7 @@ function Index() {
       {/* DOBRA 04 — MECANISMO */}
       <section className="bg-night-gradient px-5 py-14 text-primary-foreground">
         <div className="mx-auto max-w-xl">
-          <Eyebrow light>O mecanismo</Eyebrow>
+          <Eyebrow light>Um novo jeito de estudar</Eyebrow>
           <h2 className="text-2xl font-extrabold leading-tight">Mais do que memorizar conceitos, aprenda a relacioná-los.</h2>
           <p className="mt-3 text-primary-foreground/75">
             <strong className="text-primary-foreground">Arquitetura de Raciocínio Contextual do Luto</strong> — uma lógica visual em quatro operações.
@@ -241,13 +236,13 @@ function Index() {
       </section>
 
       {/* DOBRA 05 — PRODUTO */}
-      <Section>
-        <Eyebrow>O que você recebe</Eyebrow>
+      <Section id="modulos">
+        <Eyebrow>Seu material de estudo</Eyebrow>
         <h2 className="text-2xl font-extrabold leading-tight text-primary">Luto em Mapas: uma referência visual completa de estudo e consulta</h2>
         <p className="mt-3 text-muted-foreground">Material digital em PDF, um mapa por página em formato A4, pensado para estudar na tela ou imprimir.</p>
-        <ul className="mt-6 divide-y divide-border rounded-xl bg-card shadow-sm ring-1 ring-border">
+        <ul className="mt-5 grid gap-x-4 gap-y-3 text-[15px] sm:grid-cols-2">
           {INCLUDES.map((t) => (
-            <li key={t} className="flex items-start gap-3 p-4">
+            <li key={t} className="flex min-w-0 items-start gap-2">
               <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground">✓</span>
               <span className="font-medium">{t}</span>
             </li>
@@ -261,12 +256,7 @@ function Index() {
             </div>
           ))}
         </div>
-      </Section>
-
-      {/* DOBRA 06 — MÓDULOS + 60 MAPAS */}
-      <Section className="bg-card" id="modulos">
-        <Eyebrow>Conteúdo completo</Eyebrow>
-        <h2 className="text-2xl font-extrabold leading-tight text-primary">6 módulos. 60 mapas. Toque para ver cada um.</h2>
+        <h3 className="mt-8 text-xl font-extrabold leading-tight text-primary">Seus 60 mapas, organizados em 6 módulos</h3>
         <div className="mt-6 space-y-3">
           {MODULES.map((m, i) => (
             <details key={m.title} className="group overflow-hidden rounded-xl bg-background ring-1 ring-border open:shadow-md">
@@ -274,7 +264,7 @@ function Index() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary font-display text-sm font-extrabold text-primary-foreground">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="flex-1">
+                <div className="min-w-0 flex-1">
                   <h3 className="font-extrabold leading-snug text-primary">{m.title}</h3>
                   <p className="mt-0.5 text-xs font-semibold uppercase tracking-wider text-secondary">{m.maps.length} mapas</p>
                 </div>
@@ -300,27 +290,6 @@ function Index() {
       </Section>
 
       <Testimonials />
-
-      {/* ANTES E DEPOIS */}
-      <Section>
-        <Eyebrow>A transformação</Eyebrow>
-        <h2 className="text-2xl font-extrabold leading-tight text-primary">De um conhecimento fragmentado para uma compreensão relacional</h2>
-        <div className="mt-6 space-y-4">
-          <div className="rounded-xl bg-muted p-5">
-            <p className="font-display text-sm font-extrabold uppercase tracking-widest text-destructive">Antes</p>
-            <ul className="mt-3 space-y-2 text-[15px]">
-              {BEFORE.map((t) => <li key={t}>✕ {t}</li>)}
-            </ul>
-          </div>
-          <div className="rounded-xl bg-primary p-5 text-primary-foreground">
-            <p className="font-display text-sm font-extrabold uppercase tracking-widest text-secondary">Depois</p>
-            <ul className="mt-3 space-y-2 text-[15px]">
-              {AFTER.map((t) => <li key={t}>✓ {t}</li>)}
-            </ul>
-          </div>
-        </div>
-        <p className="mt-3 text-xs text-muted-foreground">Objetivos educacionais, não garantias de competência profissional ou resultados clínicos.</p>
-      </Section>
 
       {/* PARA QUEM */}
       <Section className="bg-card">
