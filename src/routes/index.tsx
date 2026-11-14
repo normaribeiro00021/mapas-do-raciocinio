@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MODULES, FAQ, REFERENCES } from "@/lib/offer";
+import { MODULES, FAQ } from "@/lib/offer";
+import heroImg from "@/assets/hero-mockup.webp";
+import { MapsMarquee, BeforeAfter, Testimonials, PurchaseToast, ReferencesCard } from "@/components/Sections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,80 +51,6 @@ function Section({ children, className = "", id }: { children: React.ReactNode; 
     <section id={id} className={`px-5 py-14 ${className}`}>
       <div className="mx-auto max-w-xl">{children}</div>
     </section>
-  );
-}
-
-/* Mockup em CSS puro: zero imagens, carregamento instantâneo */
-function MapPage({ variant, className = "" }: { variant: "net" | "compare" | "concept"; className?: string }) {
-  return (
-    <div className={`absolute rounded-md border border-border bg-card p-2 shadow-xl ${className}`}>
-      <div className="mb-1.5 h-1.5 w-2/3 rounded bg-primary/80" />
-      <div className="mb-2 h-1 w-1/2 rounded bg-muted-foreground/30" />
-      {variant === "net" && (
-        <svg viewBox="0 0 100 90" className="w-full">
-          {[[50, 45, 20, 18], [50, 45, 80, 18], [50, 45, 18, 72], [50, 45, 82, 72], [50, 45, 50, 82]].map(([a, b, c, d], i) => (
-            <line key={i} x1={a} y1={b} x2={c} y2={d} className="stroke-secondary" strokeWidth="1.2" />
-          ))}
-          <circle cx="50" cy="45" r="12" className="fill-primary" />
-          {[[20, 18], [80, 18], [18, 72], [82, 72], [50, 82]].map(([x, y], i) => (
-            <circle key={i} cx={x} cy={y} r="7" className={i % 2 ? "fill-accent" : "fill-secondary"} />
-          ))}
-        </svg>
-      )}
-      {variant === "compare" && (
-        <div className="grid grid-cols-3 gap-1">
-          {["bg-secondary", "bg-accent", "bg-destructive"].map((c) => (
-            <div key={c} className="space-y-1">
-              <div className={`h-3 rounded-sm ${c}`} />
-              <div className="h-1 rounded bg-muted" />
-              <div className="h-1 rounded bg-muted" />
-              <div className="h-1 w-2/3 rounded bg-muted" />
-            </div>
-          ))}
-        </div>
-      )}
-      {variant === "concept" && (
-        <div className="space-y-1.5">
-          <div className="mx-auto h-4 w-1/2 rounded bg-primary" />
-          <div className="flex justify-between gap-1">
-            <div className="h-3 flex-1 rounded bg-secondary/70" />
-            <div className="h-3 flex-1 rounded bg-accent/70" />
-          </div>
-          <div className="h-1 rounded bg-muted" />
-          <div className="h-1 w-4/5 rounded bg-muted" />
-        </div>
-      )}
-    </div>
-  );
-}
-
-function HeroMockup() {
-  return (
-    <div className="relative mx-auto mt-8 h-[330px] w-full max-w-[340px]" aria-hidden>
-      <MapPage variant="compare" className="left-0 top-10 w-[42%] -rotate-6" />
-      <MapPage variant="net" className="right-0 top-6 w-[42%] rotate-6" />
-      <MapPage variant="concept" className="bottom-0 left-2 w-[38%] -rotate-3" />
-      <div className="absolute left-1/2 top-0 z-10 flex h-[300px] w-[58%] -translate-x-1/2 flex-col justify-between rounded-lg bg-primary p-4 text-primary-foreground shadow-2xl ring-1 ring-primary-foreground/10">
-        <div>
-          <p className="font-display text-[9px] font-bold uppercase tracking-[0.2em] text-secondary">Psicologia do Luto</p>
-          <svg viewBox="0 0 100 70" className="my-3 w-full opacity-90">
-            {[[50, 35, 15, 10], [50, 35, 85, 10], [50, 35, 12, 60], [50, 35, 88, 60], [15, 10, 85, 10]].map(([a, b, c, d], i) => (
-              <line key={i} x1={a} y1={b} x2={c} y2={d} className="stroke-secondary" strokeWidth="0.8" />
-            ))}
-            <circle cx="50" cy="35" r="9" className="fill-secondary" />
-            {[[15, 10], [85, 10], [12, 60], [88, 60]].map(([x, y], i) => (
-              <circle key={i} cx={x} cy={y} r="4.5" className="fill-accent" />
-            ))}
-          </svg>
-          <p className="font-display text-2xl font-extrabold leading-none">Luto em<br />Mapas</p>
-          <p className="mt-2 text-[10px] leading-tight text-primary-foreground/70">Raciocínio Clínico, Contextos e Processos Psicológicos do Luto</p>
-        </div>
-        <div className="flex items-end justify-between">
-          <span className="font-display text-4xl font-extrabold leading-none text-highlight">60</span>
-          <span className="text-right text-[9px] uppercase leading-tight tracking-wider text-primary-foreground/70">mapas<br />visuais</span>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -179,21 +107,25 @@ function Index() {
   return (
     <main className="min-h-screen bg-background font-sans text-[17px] leading-relaxed text-foreground">
       {/* DOBRA 01 — HERO */}
-      <header className="bg-primary px-5 pb-12 pt-8 text-primary-foreground">
+      <header className="bg-night-gradient px-5 pb-12 pt-8 text-primary-foreground">
         <div className="mx-auto max-w-xl">
           <p className="text-center font-display text-[11px] font-bold uppercase tracking-[0.18em] text-highlight">
             Psicologia do Luto · Referência educacional visual
           </p>
           <h1 className="mt-5 text-center text-[1.75rem] font-extrabold leading-[1.15]">
-            <span className="text-highlight">60 Mapas Visuais</span> de Psicologia do Luto para compreender diferentes experiências de perda e desenvolver um raciocínio mais contextualizado
+            <span className="text-gradient">60 Mapas Visuais</span> de Psicologia do Luto para compreender diferentes experiências de perda e desenvolver um raciocínio mais contextualizado
           </h1>
           <p className="mt-4 text-center text-base text-primary-foreground/80">
             Fundamentos, manifestações, diferenças clínicas, vínculos, contextos e processos de adaptação — em mapas que conectam teoria, situações e hipóteses de compreensão.
           </p>
-          <HeroMockup />
+          <div className="relative mt-8">
+            <div className="absolute -inset-6 rounded-full bg-brand-gradient opacity-25 blur-3xl" aria-hidden />
+            <img src={heroImg} alt="Luto em Mapas: tablet, celular e páginas impressas com os mapas visuais" width={720} height={720} fetchPriority="high" className="relative w-full rounded-2xl glow" />
+            <span className="badge-shine absolute -top-3 right-3 rounded-full bg-brand-gradient px-3 py-1 font-display text-xs font-extrabold text-night">60 MAPAS</span>
+          </div>
           <ul className="mt-8 grid grid-cols-2 gap-2 text-sm">
             {["60 mapas visuais", "6 módulos educacionais", "Fundamentação científica", "Digital e imprimível (A4)"].map((t) => (
-              <li key={t} className="rounded-lg bg-primary-foreground/5 px-3 py-2.5 text-center font-semibold ring-1 ring-primary-foreground/10">
+              <li key={t} className="badge-shine rounded-lg bg-primary-foreground/5 px-3 py-2.5 text-center font-semibold ring-1 ring-glow-teal/40">
                 {t}
               </li>
             ))}
@@ -204,6 +136,8 @@ function Index() {
           <p className="mt-3 text-center text-xs text-primary-foreground/60">Para estudantes e profissionais de Psicologia</p>
         </div>
       </header>
+
+      <MapsMarquee />
 
       {/* DOBRA 02 — DOR */}
       <Section>
@@ -230,6 +164,8 @@ function Index() {
           Compreender essas situações exige olhar além das manifestações isoladas: contexto, vínculos, significados e processos psicológicos.
         </p>
       </Section>
+
+      <BeforeAfter />
 
       {/* DOBRA 03 — BIG IDEA */}
       <Section className="bg-card">
@@ -275,7 +211,7 @@ function Index() {
       </Section>
 
       {/* DOBRA 04 — MECANISMO */}
-      <section className="bg-primary px-5 py-14 text-primary-foreground">
+      <section className="bg-night-gradient px-5 py-14 text-primary-foreground">
         <div className="mx-auto max-w-xl">
           <Eyebrow light>O mecanismo</Eyebrow>
           <h2 className="text-2xl font-extrabold leading-tight">Mais do que memorizar conceitos, aprenda a relacioná-los.</h2>
@@ -363,6 +299,8 @@ function Index() {
         </div>
       </Section>
 
+      <Testimonials />
+
       {/* ANTES E DEPOIS */}
       <Section>
         <Eyebrow>A transformação</Eyebrow>
@@ -416,27 +354,12 @@ function Index() {
         </div>
       </section>
 
-      {/* FUNDAMENTAÇÃO */}
-      <Section>
-        <Eyebrow>Fundamentação</Eyebrow>
-        <h2 className="text-2xl font-extrabold leading-tight text-primary">Construído sobre referenciais relevantes da Psicologia do Luto</h2>
-        <div className="mt-6 grid grid-cols-1 gap-2">
-          {REFERENCES.map(([a, t]) => (
-            <div key={a} className="flex items-baseline justify-between gap-3 border-b border-border py-2.5">
-              <span className="font-display font-bold text-primary">{a}</span>
-              <span className="text-right text-sm text-muted-foreground">{t}</span>
-            </div>
-          ))}
-        </div>
-        <p className="mt-4 text-xs text-muted-foreground">
-          Autores citados como referências bibliográficas. Não são criadores, revisores ou endossantes do produto.
-        </p>
-      </Section>
+      <ReferencesCard />
 
       {/* OFERTA */}
-      <section id="oferta" className="bg-primary px-5 py-14 text-primary-foreground">
+      <section id="oferta" className="bg-night-gradient px-5 py-14 text-primary-foreground">
         <div className="mx-auto max-w-xl">
-          <div className="rounded-2xl bg-card p-6 text-card-foreground shadow-2xl">
+          <div className="rounded-2xl bg-card p-6 text-card-foreground glow">
             <p className="text-center font-display text-xs font-bold uppercase tracking-[0.18em] text-secondary">Acesso completo</p>
             <h2 className="mt-2 text-center text-3xl font-extrabold text-primary">Luto em Mapas</h2>
             <p className="text-center text-sm text-muted-foreground">60 Mapas Visuais de Raciocínio e Compreensão do Luto</p>
@@ -490,6 +413,8 @@ function Index() {
           Produto de finalidade educacional. Não constitui formação clínica, instrumento de avaliação psicológica, protocolo psicoterapêutico ou substituto de supervisão profissional.
         </p>
       </footer>
+
+      <PurchaseToast />
 
       {/* CTA fixo mobile */}
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-card/95 p-3 backdrop-blur md:hidden">

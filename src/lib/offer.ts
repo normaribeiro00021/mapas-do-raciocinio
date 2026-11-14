@@ -100,7 +100,7 @@ export const MODULES: Mod[] = [
   },
 ];
 
-export const REFERENCES: [string, string][] = [
+const _REFERENCES: [string, string][] = [
   ["John Bowlby", "Apego, separação e perda"],
   ["J. William Worden", "Tarefas do luto"],
   ["Stroebe e Schut", "Modelo do Processo Dual"],
