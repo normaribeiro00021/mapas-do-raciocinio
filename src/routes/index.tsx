@@ -314,12 +314,12 @@ function Index() {
       </Section>
 
       {/* MANIFESTO */}
-      <section className="bg-accent px-5 py-14 text-accent-foreground">
-        <div className="mx-auto max-w-xl space-y-3 text-center font-display text-lg font-semibold leading-snug">
+      <section className="bg-accent px-5 py-7 text-accent-foreground">
+        <div className="mx-auto max-w-xl space-y-2 text-center font-display text-sm font-semibold leading-snug sm:text-base">
           <p>O luto não acontece da mesma maneira para todas as pessoas.</p>
           <p>O silêncio pode representar experiências distintas.</p>
           <p>Retomar a vida não significa deixar de sentir saudade.</p>
-          <p className="pt-3 text-2xl font-extrabold">Luto em Mapas nasce dessa perspectiva.</p>
+          <p className="pt-1 text-lg font-extrabold sm:text-xl">Luto em Mapas nasce dessa perspectiva.</p>
         </div>
       </section>
 
