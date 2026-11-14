@@ -38,7 +38,7 @@ function Cta({ label = "QUERO MEUS 60 MAPAS VISUAIS", dark = false }: { label?: 
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <p className={`mb-3 font-display text-xs font-bold uppercase tracking-[0.18em] ${light ? "text-secondary" : "text-secondary"}`}>
+    <p className={`mb-3 font-display text-xs font-bold uppercase tracking-[0.18em] ${light ? "text-highlight" : "text-secondary"}`}>
       {children}
     </p>
   );
@@ -118,7 +118,7 @@ function HeroMockup() {
           <p className="mt-2 text-[10px] leading-tight text-primary-foreground/70">Raciocínio Clínico, Contextos e Processos Psicológicos do Luto</p>
         </div>
         <div className="flex items-end justify-between">
-          <span className="font-display text-4xl font-extrabold leading-none text-secondary">60</span>
+          <span className="font-display text-4xl font-extrabold leading-none text-highlight">60</span>
           <span className="text-right text-[9px] uppercase leading-tight tracking-wider text-primary-foreground/70">mapas<br />visuais</span>
         </div>
       </div>
@@ -181,11 +181,11 @@ function Index() {
       {/* DOBRA 01 — HERO */}
       <header className="bg-primary px-5 pb-12 pt-8 text-primary-foreground">
         <div className="mx-auto max-w-xl">
-          <p className="text-center font-display text-[11px] font-bold uppercase tracking-[0.18em] text-secondary">
+          <p className="text-center font-display text-[11px] font-bold uppercase tracking-[0.18em] text-highlight">
             Psicologia do Luto · Referência educacional visual
           </p>
           <h1 className="mt-5 text-center text-[1.75rem] font-extrabold leading-[1.15]">
-            <span className="text-secondary">60 Mapas Visuais</span> de Psicologia do Luto para compreender diferentes experiências de perda e desenvolver um raciocínio mais contextualizado
+            <span className="text-highlight">60 Mapas Visuais</span> de Psicologia do Luto para compreender diferentes experiências de perda e desenvolver um raciocínio mais contextualizado
           </h1>
           <p className="mt-4 text-center text-base text-primary-foreground/80">
             Fundamentos, manifestações, diferenças clínicas, vínculos, contextos e processos de adaptação — em mapas que conectam teoria, situações e hipóteses de compreensão.
@@ -289,7 +289,7 @@ function Index() {
                   {n}
                 </span>
                 <div className="rounded-xl bg-primary-foreground/5 p-4 ring-1 ring-primary-foreground/10">
-                  <h3 className="font-extrabold uppercase tracking-wider text-secondary">{t}</h3>
+                  <h3 className="font-extrabold uppercase tracking-wider text-highlight">{t}</h3>
                   <p className="mt-1 text-[15px] text-primary-foreground/85">{d}</p>
                 </div>
               </li>
@@ -320,7 +320,7 @@ function Index() {
         <div className="mt-6 grid grid-cols-3 gap-2 text-center">
           {[["60", "mapas"], ["6", "módulos"], ["A4", "imprimível"]].map(([n, l]) => (
             <div key={l} className="rounded-xl bg-primary p-4 text-primary-foreground">
-              <p className="font-display text-3xl font-extrabold text-secondary">{n}</p>
+              <p className="font-display text-3xl font-extrabold text-highlight">{n}</p>
               <p className="text-xs uppercase tracking-wider">{l}</p>
             </div>
           ))}
