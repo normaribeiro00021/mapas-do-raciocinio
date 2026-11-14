@@ -5,11 +5,10 @@ import m23 from "@/assets/mapa-23.webp";
 import m07 from "@/assets/mapa-07.webp";
 import m31 from "@/assets/mapa-31.webp";
 import estudo from "@/assets/estudo-1.webp";
-import bonusPrincipal from "@/assets/bonus-produto-principal.webp";
-import bonusCasos from "@/assets/bonus-casos-clinicos.webp";
-import bonusPerguntas from "@/assets/bonus-banco-perguntas.webp";
-import bonusRecursos from "@/assets/bonus-recursos-visuais.webp";
-import bonusAtlas from "@/assets/bonus-atlas-estrategias.webp";
+import bonusCasos from "@/assets/bonus-casos-premium.jpg";
+import bonusPerguntas from "@/assets/bonus-perguntas-premium.jpg";
+import bonusRecursos from "@/assets/bonus-recursos-premium.jpg";
+import bonusAtlas from "@/assets/bonus-atlas-premium.jpg";
 
 export const MAP_IMAGES = { m19, m23, m07, m31 };
 
@@ -216,14 +215,6 @@ export function PurchaseToast() {
 
 const BONUSES = [
   {
-    img: bonusPrincipal,
-    badge: "Produto principal",
-    title: "60 Mapas Visuais",
-    need: "Compreender e relacionar conhecimentos",
-    desc: "A base de tudo: 60 mapas que organizam a Psicologia do Luto de forma visual, conectando teoria, vínculos, significados e contextos de perda.",
-    main: true,
-  },
-  {
     img: bonusCasos,
     badge: "Bônus 01",
     title: "Casos Clínicos Comentados",
@@ -255,33 +246,32 @@ const BONUSES = [
 
 export function BonusSection() {
   return (
-    <section className="bg-night-gradient px-5 py-14 text-primary-foreground">
-      <div className="mx-auto max-w-xl">
+    <section className="bg-night px-5 py-10 text-primary-foreground">
+      <div className="mx-auto max-w-3xl">
         <div className="text-center">
           <span className="badge-shine inline-block rounded-full border border-glow-teal/60 px-4 py-1 font-display text-[11px] font-bold uppercase tracking-[0.2em] text-glow-teal">
-            Oferta completa
+            Exclusivos do Plano Pro
           </span>
           <h2 className="mt-4 text-3xl font-extrabold uppercase leading-tight">
-            Tudo o que você <span className="text-gradient">recebe</span>
+            4 bônus para <span className="text-gradient">aprofundar seu estudo</span>
           </h2>
-          <p className="mt-2 text-sm text-primary-foreground/70">O produto principal + 4 bônus, cada um resolvendo uma necessidade do seu estudo.</p>
+          <p className="mt-2 text-sm text-primary-foreground/70">Além dos 60 mapas, receba estes quatro materiais no Plano Pro.</p>
         </div>
-        <div className="mt-8 space-y-5">
+        <div className="mt-7 grid gap-5 sm:grid-cols-2">
           {BONUSES.map((b) => (
-            <article key={b.title} className={`overflow-hidden rounded-2xl bg-primary-foreground/5 ring-1 ring-primary-foreground/10 ${b.main ? "glow ring-glow-teal/40" : ""}`}>
-              <div className="relative mx-auto max-w-[260px] pt-3 sm:max-w-[340px]">
-                <img src={b.img} alt={`Mockup: ${b.title}`} width={768} height={1024} loading="lazy" decoding="async" className="block aspect-[4/3] w-full object-contain" />
-                <span className={`badge-shine absolute left-3 top-3 rounded-full px-3 py-1 font-display text-[11px] font-extrabold uppercase tracking-wider ${b.main ? "bg-brand-gradient text-night" : "bg-night/85 text-glow-teal ring-1 ring-glow-teal/50"}`}>
-                  {b.badge}
-                </span>
+            <article key={b.title} className="flex flex-col overflow-hidden rounded-lg border border-primary-foreground/15 bg-primary-foreground/5 p-4 text-center">
+              <div aria-hidden="true" className="text-base text-glow-teal">★★★★★</div>
+              <p className="mb-3 mt-2 text-[9px] font-semibold uppercase text-primary-foreground/60">Ciência a favor da sua prática</p>
+              <div className="mx-auto w-full max-w-[280px]">
+                <img src={b.img} alt={`Mockup ilustrativo de livro e tablet: ${b.title}`} width={816} height={816} loading="lazy" decoding="async" className="block aspect-square w-full rounded-lg object-contain" />
               </div>
-              <div className="p-5">
-                <h3 className="font-display text-xl font-extrabold">{b.title}</h3>
-                <p className="mt-1.5 flex items-center gap-2 text-sm font-bold text-highlight">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-gradient text-[11px] text-night">→</span>
-                  {b.need}
-                </p>
-                <p className="mt-2 text-[15px] text-primary-foreground/75">{b.desc}</p>
+              <div className="flex flex-1 flex-col items-center pt-4">
+                <span className="badge-shine rounded-full bg-brand-gradient px-4 py-1 font-display text-[11px] font-extrabold uppercase text-night">{b.badge}</span>
+                <h3 className="mt-3 font-display text-lg font-extrabold leading-snug">{b.title}</h3>
+                <p className="mt-2 text-sm font-semibold text-highlight">{b.need}</p>
+                <p className="mb-4 mt-2 text-sm text-primary-foreground/70">{b.desc}</p>
+                <p className="mt-auto text-base font-extrabold text-glow-teal">GRÁTIS NO PLANO PRO</p>
+                <p className="mt-1 text-xs text-primary-foreground/55">Sem custo adicional no pacote</p>
               </div>
             </article>
           ))}
