@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MODULES, FAQ } from "@/lib/offer";
 import heroImg from "@/assets/hero-mockup.webp";
-import { MapsMarquee, BeforeAfter, Testimonials, PurchaseToast, ReferencesCard } from "@/components/Sections";
+import { MapsMarquee, BeforeAfter, Testimonials, PurchaseToast, ReferencesCard, BonusSection } from "@/components/Sections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
