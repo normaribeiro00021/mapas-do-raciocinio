@@ -356,6 +356,8 @@ function Index() {
 
       <ReferencesCard />
 
+      <BonusSection />
+
       {/* OFERTA */}
       <section id="oferta" className="bg-night-gradient px-5 py-14 text-primary-foreground">
         <div className="mx-auto max-w-xl">
