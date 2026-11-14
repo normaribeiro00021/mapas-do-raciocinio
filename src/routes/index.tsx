@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MODULES, FAQ } from "@/lib/offer";
 import heroImg from "@/assets/hero-mockup.webp";
-import { MapsMarquee, BeforeAfter, Testimonials, PurchaseToast, ReferencesCard } from "@/components/Sections";
+import { MapsMarquee, BeforeAfter, Testimonials, PurchaseToast, ReferencesCard, BonusSection } from "@/components/Sections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -355,6 +355,8 @@ function Index() {
       </section>
 
       <ReferencesCard />
+
+      <BonusSection />
 
       {/* OFERTA */}
       <section id="oferta" className="bg-night-gradient px-5 py-14 text-primary-foreground">

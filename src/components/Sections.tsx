@@ -4,6 +4,11 @@ import m23 from "@/assets/mapa-23.webp";
 import m07 from "@/assets/mapa-07.webp";
 import m31 from "@/assets/mapa-31.webp";
 import estudo from "@/assets/estudo-1.webp";
+import bonusPrincipal from "@/assets/bonus-produto-principal.webp";
+import bonusCasos from "@/assets/bonus-casos-clinicos.webp";
+import bonusPerguntas from "@/assets/bonus-banco-perguntas.webp";
+import bonusRecursos from "@/assets/bonus-recursos-visuais.webp";
+import bonusAtlas from "@/assets/bonus-atlas-estrategias.webp";
 
 export const MAP_IMAGES = { m19, m23, m07, m31 };
 
@@ -181,6 +186,84 @@ export function PurchaseToast() {
       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-gradient font-bold text-night">✓</span>
       <p><strong>{name}</strong>, de {city}, acabou de garantir o <span className="text-gradient font-bold">Luto em Mapas</span>. <span className="text-[10px] opacity-60">(exemplo)</span></p>
     </div>
+  );
+}
+
+const BONUSES = [
+  {
+    img: bonusPrincipal,
+    badge: "Produto principal",
+    title: "60 Mapas Visuais",
+    need: "Compreender e relacionar conhecimentos",
+    desc: "A base de tudo: 60 mapas que organizam a Psicologia do Luto de forma visual, conectando teoria, vínculos, significados e contextos de perda.",
+    main: true,
+  },
+  {
+    img: bonusCasos,
+    badge: "Bônus 01",
+    title: "Casos Clínicos Comentados",
+    need: "Exercitar o raciocínio",
+    desc: "Situações clínicas fictícias analisadas passo a passo, para você treinar a leitura contextual que os mapas propõem.",
+  },
+  {
+    img: bonusPerguntas,
+    badge: "Bônus 02",
+    title: "Banco de Perguntas Clínicas",
+    need: "Desenvolver a investigação e a escuta",
+    desc: "Perguntas organizadas por tema para aprofundar a investigação e enriquecer a escuta em diferentes experiências de perda.",
+  },
+  {
+    img: bonusRecursos,
+    badge: "Bônus 03",
+    title: "Recursos Visuais de Psicoeducação",
+    need: "Comunicar conceitos complexos",
+    desc: "Materiais visuais prontos para explicar conceitos do luto de forma clara, em contextos educacionais e de psicoeducação.",
+  },
+  {
+    img: bonusAtlas,
+    badge: "Bônus 04",
+    title: "Atlas de Estratégias Terapêuticas",
+    need: "Estudar possibilidades de intervenção",
+    desc: "Um panorama visual de possibilidades de intervenção descritas na literatura, para ampliar seu repertório de estudo.",
+  },
+];
+
+export function BonusSection() {
+  return (
+    <section className="bg-night-gradient px-5 py-14 text-primary-foreground">
+      <div className="mx-auto max-w-xl">
+        <div className="text-center">
+          <span className="badge-shine inline-block rounded-full border border-glow-teal/60 px-4 py-1 font-display text-[11px] font-bold uppercase tracking-[0.2em] text-glow-teal">
+            Oferta completa
+          </span>
+          <h2 className="mt-4 text-3xl font-extrabold uppercase leading-tight">
+            Tudo o que você <span className="text-gradient">recebe</span>
+          </h2>
+          <p className="mt-2 text-sm text-primary-foreground/70">O produto principal + 4 bônus, cada um resolvendo uma necessidade do seu estudo.</p>
+        </div>
+        <div className="mt-8 space-y-5">
+          {BONUSES.map((b) => (
+            <article key={b.title} className={`overflow-hidden rounded-2xl bg-primary-foreground/5 ring-1 ring-primary-foreground/10 ${b.main ? "glow ring-glow-teal/40" : ""}`}>
+              <div className="relative">
+                <img src={b.img} alt={`Mockup: ${b.title}`} width={768} height={1024} loading="lazy" decoding="async" className={`block w-full object-cover ${b.main ? "aspect-[4/3]" : "aspect-[16/9]"}`} />
+                <span className={`badge-shine absolute left-3 top-3 rounded-full px-3 py-1 font-display text-[11px] font-extrabold uppercase tracking-wider ${b.main ? "bg-brand-gradient text-night" : "bg-night/85 text-glow-teal ring-1 ring-glow-teal/50"}`}>
+                  {b.badge}
+                </span>
+              </div>
+              <div className="p-5">
+                <h3 className="font-display text-xl font-extrabold">{b.title}</h3>
+                <p className="mt-1.5 flex items-center gap-2 text-sm font-bold text-highlight">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-gradient text-[11px] text-night">→</span>
+                  {b.need}
+                </p>
+                <p className="mt-2 text-[15px] text-primary-foreground/75">{b.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="mt-6 text-center text-xs text-primary-foreground/50">Mockups ilustrativos. Todo o material é digital, em PDF.</p>
+      </div>
+    </section>
   );
 }
 
