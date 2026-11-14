@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 import m19 from "@/assets/mapa-19.webp";
 import m23 from "@/assets/mapa-23.webp";
 import m07 from "@/assets/mapa-07.webp";
@@ -59,6 +60,9 @@ export function MapsMarquee() {
   );
 }
 
+const BEFORE = ["Conhecimentos fragmentados", "Conceitos estudados isoladamente", "Explicações simplificadas demais", "Conteúdo espalhado em livros, artigos e aulas", "Busca de uma única explicação para situações complexas"];
+const AFTER = ["Conhecimentos visualmente organizados", "Relações claras entre conceitos", "Diferenças e sobreposições entre manifestações", "Familiaridade com vários referenciais teóricos", "Uma referência integrada de estudo e consulta"];
+
 export function BeforeAfter() {
   const [pos, setPos] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
@@ -74,7 +78,8 @@ export function BeforeAfter() {
           O problema não é você: <span className="text-gradient">é o formato</span>
         </h2>
         <p className="mt-2 text-center text-sm text-primary-foreground/70">Culpa após a perda: o mesmo conteúdo em dois formatos.</p>
-        <div className="mt-6 flex justify-between font-display text-xs font-bold">
+        <div className="mx-auto mt-6 max-w-[280px] sm:max-w-[360px]">
+        <div className="flex justify-between font-display text-xs font-bold">
           <span className="text-primary-foreground/70">Texto corrido</span>
           <span className="text-glow-teal">Mapa visual</span>
         </div>
@@ -84,13 +89,14 @@ export function BeforeAfter() {
           onPointerDown={(e) => { drag.current = true; (e.target as HTMLElement).setPointerCapture?.(e.pointerId); move(e.clientX); }}
           onPointerMove={(e) => drag.current && move(e.clientX)}
           onPointerUp={() => (drag.current = false)}
+          onPointerCancel={() => (drag.current = false)}
         >
           <img src={m19} alt="Mapa visual: culpa após a perda" width={480} height={680} loading="lazy" className="absolute inset-0 h-full w-full object-cover" draggable={false} />
           <div className="absolute inset-0 overflow-hidden bg-background text-foreground" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
             <div className="p-5">
               <p className="border-b border-border pb-2 text-[11px] text-muted-foreground">Psicologia do Luto · Material de estudo</p>
-              <h3 className="mt-4 font-serif text-xl font-bold">Culpa após a perda: considerações</h3>
-              <div className="mt-3 space-y-3 font-serif text-[14px] leading-relaxed text-foreground/85">
+              <h3 className="mt-3 font-serif text-base font-bold">Culpa após a perda: considerações</h3>
+              <div className="mt-2 space-y-2 font-serif text-[11px] leading-relaxed text-foreground/85 sm:text-xs">
                 <p>A culpa é uma manifestação frequentemente observada em processos de luto e pode estar associada a diferentes conteúdos, como arrependimento por eventos anteriores à morte, percepção de responsabilidade e crenças relacionadas à lealdade.</p>
                 <p>Em alguns casos, relaciona-se a pensamentos contrafactuais sobre o que poderia ter sido feito; em outros, surge na retomada de atividades prazerosas, envolvendo significados atribuídos ao vínculo e expectativas sociais.</p>
                 <p>A compreensão dessa manifestação depende da história do relacionamento, das circunstâncias da perda e do contexto de vida, não devendo ser interpretada de forma isolada.</p>
@@ -98,20 +104,39 @@ export function BeforeAfter() {
             </div>
           </div>
           <div className="absolute inset-y-0 w-0.5 bg-glow-teal" style={{ left: `${pos}%` }}>
-            <button
+            <Button
               type="button"
+              size="icon"
               aria-label="Arraste para comparar"
               className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-glow-teal font-bold text-night glow"
               onKeyDown={(e) => { if (e.key === "ArrowLeft") setPos((p) => Math.max(0, p - 5)); if (e.key === "ArrowRight") setPos((p) => Math.min(100, p + 5)); }}
             >
               ‹ ›
-            </button>
+            </Button>
           </div>
         </div>
-        <p className="mt-3 text-center text-xs text-primary-foreground/50">Arraste para comparar</p>
-        <a href="#oferta" className="mt-6 block rounded-full bg-brand-gradient px-5 py-4 text-center font-display font-extrabold uppercase tracking-wide text-night glow">
-          Quero estudar com os mapas
-        </a>
+        </div>
+        <div className="mt-8 border-t border-primary-foreground/15 pt-6">
+          <h3 className="text-xl font-extrabold leading-tight">De um conhecimento fragmentado para uma compreensão relacional</h3>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <div className="border-l-2 border-destructive pl-4">
+              <p className="font-display text-sm font-extrabold uppercase text-primary-foreground/60">Antes</p>
+              <ul className="mt-3 space-y-2 text-[14px] text-primary-foreground/70">
+                {BEFORE.map((t) => <li key={t} className="flex gap-2"><span className="shrink-0 text-destructive">✕</span><span>{t}</span></li>)}
+              </ul>
+            </div>
+            <div className="border-l-2 border-glow-teal pl-4">
+              <p className="font-display text-sm font-extrabold uppercase text-glow-teal">Com os mapas</p>
+              <ul className="mt-3 space-y-2 text-[14px]">
+                {AFTER.map((t) => <li key={t} className="flex gap-2"><span className="shrink-0 text-glow-teal">✓</span><span>{t}</span></li>)}
+              </ul>
+            </div>
+          </div>
+          <p className="mt-4 text-xs text-primary-foreground/50">Objetivos educacionais, não garantias de competência profissional ou resultados clínicos.</p>
+        </div>
+        <Button asChild className="mt-6 h-auto w-full whitespace-normal rounded-lg bg-brand-gradient px-5 py-4 text-center font-display font-extrabold uppercase text-night glow">
+          <a href="#oferta">Quero estudar com os mapas</a>
+        </Button>
       </div>
     </section>
   );
@@ -244,8 +269,8 @@ export function BonusSection() {
         <div className="mt-8 space-y-5">
           {BONUSES.map((b) => (
             <article key={b.title} className={`overflow-hidden rounded-2xl bg-primary-foreground/5 ring-1 ring-primary-foreground/10 ${b.main ? "glow ring-glow-teal/40" : ""}`}>
-              <div className="relative">
-                <img src={b.img} alt={`Mockup: ${b.title}`} width={768} height={1024} loading="lazy" decoding="async" className={`block w-full object-cover ${b.main ? "aspect-[4/3]" : "aspect-[16/9]"}`} />
+              <div className="relative mx-auto max-w-[260px] pt-3 sm:max-w-[340px]">
+                <img src={b.img} alt={`Mockup: ${b.title}`} width={768} height={1024} loading="lazy" decoding="async" className="block aspect-[4/3] w-full object-contain" />
                 <span className={`badge-shine absolute left-3 top-3 rounded-full px-3 py-1 font-display text-[11px] font-extrabold uppercase tracking-wider ${b.main ? "bg-brand-gradient text-night" : "bg-night/85 text-glow-teal ring-1 ring-glow-teal/50"}`}>
                   {b.badge}
                 </span>
