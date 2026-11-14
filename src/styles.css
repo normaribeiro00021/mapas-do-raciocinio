@@ -132,3 +132,50 @@
   html { scroll-behavior: smooth; }
   summary::-webkit-details-marker { display: none; }
 }
+
+:root {
+  --glow-teal: oklch(0.78 0.12 195);
+  --glow-violet: oklch(0.68 0.15 305);
+  --night: oklch(0.2 0.04 250);
+  --gradient-brand: linear-gradient(90deg, var(--glow-teal), var(--glow-violet));
+  --gradient-night: radial-gradient(120% 60% at 50% 0%, oklch(0.32 0.06 230) 0%, var(--night) 60%);
+}
+@theme inline {
+  --color-glow-teal: var(--glow-teal);
+  --color-glow-violet: var(--glow-violet);
+  --color-night: var(--night);
+}
+@utility bg-night-gradient { background: var(--gradient-night); }
+@utility bg-brand-gradient { background: var(--gradient-brand); }
+@utility text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility glow {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--glow-teal) 35%, transparent),
+    0 10px 40px -8px color-mix(in oklab, var(--glow-teal) 45%, transparent),
+    0 0 60px -20px color-mix(in oklab, var(--glow-violet) 60%, transparent);
+}
+@utility badge-shine {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, oklch(1 0 0 / 0.45) 50%, transparent 70%);
+    transform: translateX(-100%);
+    animation: shine 2.8s ease-in-out infinite;
+  }
+}
+@keyframes shine { 60%, 100% { transform: translateX(100%); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes toast-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@utility animate-marquee { animation: marquee 40s linear infinite; }
+@utility animate-marquee-reverse { animation: marquee 46s linear infinite reverse; }
+@utility animate-toast { animation: toast-in 0.4s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-marquee-reverse { animation: none; }
+}
