@@ -361,25 +361,91 @@ function Index() {
       {/* OFERTA */}
       <section id="oferta" className="bg-night-gradient px-5 py-14 text-primary-foreground">
         <div className="mx-auto max-w-xl">
-          <div className="rounded-2xl bg-card p-6 text-card-foreground glow">
-            <p className="text-center font-display text-xs font-bold uppercase tracking-[0.18em] text-secondary">Acesso completo</p>
-            <h2 className="mt-2 text-center text-3xl font-extrabold text-primary">Luto em Mapas</h2>
-            <p className="text-center text-sm text-muted-foreground">60 Mapas Visuais de Raciocínio e Compreensão do Luto</p>
-            <ul className="mt-6 space-y-2.5">
-              {["60 mapas visuais", "Seis módulos completos", "Referências bibliográficas", "Perguntas de aprofundamento", "Material principal em PDF (A4)"].map((t) => (
-                <li key={t} className="flex gap-3 font-medium">
-                  <span className="text-cta">✓</span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-            <div className="my-6 rounded-xl bg-muted p-4 text-center">
-              <p className="text-sm text-muted-foreground">Condições de lançamento</p>
-              <p className="font-display text-2xl font-extrabold text-primary">Em breve</p>
-            </div>
-            <Cta />
-            <p className="mt-3 text-center text-xs text-muted-foreground">Material educacional complementar de estudo e consulta.</p>
+          <div className="text-center">
+            <span className="badge-shine inline-block rounded-full border border-glow-teal/60 px-4 py-1 font-display text-[11px] font-bold uppercase tracking-[0.2em] text-glow-teal">
+              Escolha seu acesso
+            </span>
+            <h2 className="mt-4 text-3xl font-extrabold uppercase leading-tight">
+              Comece agora com o <span className="text-gradient">Luto em Mapas</span>
+            </h2>
+            <p className="mt-2 text-sm text-primary-foreground/70">Pagamento único. Material digital em PDF, para ler na tela ou imprimir.</p>
           </div>
+
+          <div className="mt-8 space-y-5">
+            {/* PLANO PRO — destaque */}
+            <div className="relative rounded-2xl bg-card p-6 pt-8 text-card-foreground ring-2 ring-glow-teal glow">
+              <span className="badge-shine absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-brand-gradient px-4 py-1.5 font-display text-xs font-extrabold uppercase tracking-wider text-night">
+                ★ Mais escolhido
+              </span>
+              <div className="flex items-end justify-between gap-3">
+                <div>
+                  <h3 className="font-display text-2xl font-extrabold text-primary">Plano Pro</h3>
+                  <p className="text-sm font-semibold text-secondary">Pacote completo + 4 bônus</p>
+                </div>
+                <p className="text-right font-display">
+                  <span className="block text-xs font-bold uppercase tracking-wider text-muted-foreground">por apenas</span>
+                  <span className="text-4xl font-extrabold text-primary">R$ 19,90</span>
+                </p>
+              </div>
+              <ul className="mt-5 space-y-2.5 text-[15px]">
+                {[
+                  "60 Mapas Visuais nos 6 módulos (PDF, A4)",
+                  "Bônus 01 — Casos Clínicos Comentados",
+                  "Bônus 02 — Banco de Perguntas Clínicas",
+                  "Bônus 03 — Recursos Visuais de Psicoeducação",
+                  "Bônus 04 — Atlas de Estratégias Terapêuticas",
+                  "Futuras atualizações incluídas",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-3 font-medium">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cta text-xs font-bold text-cta-foreground">✓</span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 rounded-lg bg-muted p-3 text-center text-[13px] font-semibold text-primary">
+                Por só R$ 10 a mais, você leva os 4 bônus completos.
+              </p>
+              <a href={CHECKOUT_URL} className="mt-4 block rounded-xl bg-cta px-5 py-4 text-center font-display text-base font-extrabold uppercase tracking-wide text-cta-foreground shadow-lg shadow-cta/30 transition active:scale-[0.98]">
+                Quero o plano pro →
+              </a>
+            </div>
+
+            {/* PLANO BÁSICO */}
+            <div className="rounded-2xl bg-card/60 p-6 text-card-foreground ring-1 ring-border">
+              <div className="flex items-end justify-between gap-3">
+                <div>
+                  <h3 className="font-display text-xl font-extrabold text-primary">Plano Básico</h3>
+                  <p className="text-sm text-muted-foreground">Só o material principal</p>
+                </div>
+                <p className="text-right font-display">
+                  <span className="block text-xs font-bold uppercase tracking-wider text-muted-foreground">por</span>
+                  <span className="text-3xl font-extrabold text-primary">R$ 9,90</span>
+                </p>
+              </div>
+              <ul className="mt-5 space-y-2.5 text-[15px]">
+                <li className="flex items-start gap-3 font-medium">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cta text-xs font-bold text-cta-foreground">✓</span>
+                  60 Mapas Visuais nos 6 módulos (PDF, A4)
+                </li>
+                {[
+                  "Bônus 01 — Casos Clínicos Comentados",
+                  "Bônus 02 — Banco de Perguntas Clínicas",
+                  "Bônus 03 — Recursos Visuais de Psicoeducação",
+                  "Bônus 04 — Atlas de Estratégias Terapêuticas",
+                  "Futuras atualizações",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-3 text-muted-foreground/70">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-bold text-muted-foreground">✕</span>
+                    <s>{t}</s>
+                  </li>
+                ))}
+              </ul>
+              <a href={CHECKOUT_URL} className="mt-4 block rounded-xl border-2 border-primary px-5 py-3.5 text-center font-display text-sm font-extrabold uppercase tracking-wide text-primary transition active:scale-[0.98]">
+                Quero o plano básico
+              </a>
+            </div>
+          </div>
+          <p className="mt-5 text-center text-xs text-primary-foreground/50">Material educacional complementar de estudo e consulta.</p>
         </div>
       </section>
 
