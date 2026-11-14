@@ -175,7 +175,7 @@ export function PurchaseToast() {
     return () => { clearTimeout(first); clearInterval(loop); };
   }, []);
   if (i === null) return null;
-  const [name, city] = PURCHASES[i];
+  const [name, city] = PURCHASES[i] ?? ["", ""];
   return (
     <div className="animate-toast fixed inset-x-3 bottom-24 z-50 mx-auto flex max-w-sm items-center gap-3 rounded-2xl border border-glow-teal/40 bg-night/95 p-3 text-sm text-primary-foreground backdrop-blur glow md:bottom-6">
       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-gradient font-bold text-night">✓</span>
