@@ -100,20 +100,6 @@ export const MODULES: Mod[] = [
   },
 ];
 
-const _REFERENCES: [string, string][] = [
-  ["John Bowlby", "Apego, separação e perda"],
-  ["J. William Worden", "Tarefas do luto"],
-  ["Stroebe e Schut", "Modelo do Processo Dual"],
-  ["Robert Neimeyer", "Reconstrução de significado"],
-  ["Dennis Klass e col.", "Vínculos contínuos"],
-  ["Pauline Boss", "Perdas ambíguas"],
-  ["Kenneth Doka", "Lutos não reconhecidos"],
-  ["George Bonanno", "Resiliência e trajetórias"],
-  ["Maria Helena P. Franco", "Fundamentação brasileira"],
-  ["OMS", "CID-11"],
-  ["APA", "DSM-5-TR"],
-];
-
 export const FAQ: [string, string][] = [
   ["O que é Luto em Mapas?", "Uma referência educacional visual com 60 mapas de Psicologia do Luto, organizada em seis módulos."],
   ["Para quem é indicado?", "Estudantes de Psicologia, psicólogos recém-formados e profissionais que desejam complementar seus estudos sobre experiências de perda."],
